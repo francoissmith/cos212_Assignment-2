@@ -1,18 +1,19 @@
+@SuppressWarnings({"unchecked","rawtypes"})
 public class ThreadedAvlTree<T extends Comparable<T>> {
     public Node<T> root;
-
+    
     public ThreadedAvlTree() {
         this.root = null;
     }
-
-
+    
+    
     int getHeight(Node<T> N) {
         if (N == null)
-            return 0;
-
+        return 0;
+        
         return N.height;
     }
-
+    
     static Node getLeftMost(Node node) {
         while (node != null && node.left != null)
             node = node.left;
@@ -51,7 +52,7 @@ public class ThreadedAvlTree<T extends Comparable<T>> {
 
 
     Node<T> insert(Node<T> node, T data) {
-
+        return root;
     }
 
     /**
@@ -60,5 +61,6 @@ public class ThreadedAvlTree<T extends Comparable<T>> {
      */
     Node<T> removeNode(Node<T> root, T data) {
 
+        return root;
     }
 }

@@ -5,7 +5,6 @@ public class AvlTree<T extends Comparable<T>> {
         this.root = null;
     }
 
-
     int getHeight(Node<T> N) {
         if (N == null)
             return 0;
@@ -13,7 +12,7 @@ public class AvlTree<T extends Comparable<T>> {
         return N.height;
     }
 
-    /*Printing AvlTree in inorder*/
+    /* Printing AvlTree in inorder */
     void print(Node<T> node) {
         if (node == null)
             return;
@@ -33,13 +32,35 @@ public class AvlTree<T extends Comparable<T>> {
      */
 
     Node<T> insert(Node<T> node, T data) {
-            if (root == null) {
-                root =  node;
+        Node<T> newNode = new Node<T>(data);
+        newNode.left = null;
+        newNode.right = null;
+
+        if (root == null) {
+            root = newNode;
+        } else {
+            if (data.equals(node.data)) {
+                return node;
+            } else if (data.compareTo(node.data) < 0) {
+                if (node.left != null) {
+                    return insert(node.left, data);
+                } else {
+                    node.left = newNode;
+                }
+            } else if (data.compareTo(node.data) > 0) {
+                if (node.right != null) {
+                    return insert(node.right, data);
+                } else {
+                    node.right = newNode;
+                }
             }
+        }
+
+        setHeight(root);
+        System.out.println();
 
         return root;
     }
-
 
     /**
      * Remove / Delete the node based on the given data
@@ -52,20 +73,31 @@ public class AvlTree<T extends Comparable<T>> {
     }
 
     /* Helper Function */
-// ************************************************************** search()
-    Node<T> search(T data) {
-        Node<T> p = root;
-        while (p != null) {
-            if (data.equals(p.data)) 
-                return p;
-            else if (data.compareTo(p.data) < 0)
-                p = p.left;
+    // ************************************************************** setHeight()
+    void setHeight(Node<T>node) {
+        if (node != null) {
+            setHeight(node.left);
+            node.height = setNodeHeight(node);
+            setHeight(node.right);
+            System.out.println("data: " + node.data + " , height: " + node.height );
+        }
+
+    }
+
+    // ************************************************************** setNodeHeight()
+    int setNodeHeight(Node<T> node) {
+        if (node == null)
+            return 0;
+        else {
+            int left = setNodeHeight(node.left);
+            int right = setNodeHeight(node.right);
+
+            if (left > right)
+                return left + 1;
             else
                 return right + 1;
         }
     }
     
-        return null;
-    }
-// **************************************************************
+    // **************************************************************
 }
