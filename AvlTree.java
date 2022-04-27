@@ -61,9 +61,10 @@ public class AvlTree<T extends Comparable<T>> {
             else if (data.compareTo(p.data) < 0)
                 p = p.left;
             else
-                p = p.right;
+                return right + 1;
         }
-
+    }
+    
         return null;
     }
 // **************************************************************
