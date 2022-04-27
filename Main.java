@@ -8,6 +8,7 @@ public class Main {
         tree.root = tree.insert(tree.root, 20);
         tree.root = tree.insert(tree.root, 25);
         tree.root = tree.insert(tree.root, 35);
+        // tree.root = tree.insert(tree.root, 35);
         tree.root = tree.insert(tree.root, 14);
 
         System.out.println("Inorder traversal" +

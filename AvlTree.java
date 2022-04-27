@@ -57,7 +57,6 @@ public class AvlTree<T extends Comparable<T>> {
         }
 
         setHeight(root);
-        System.out.println();
 
         return root;
     }
@@ -79,7 +78,7 @@ public class AvlTree<T extends Comparable<T>> {
             setHeight(node.left);
             node.height = setNodeHeight(node);
             setHeight(node.right);
-            System.out.println("data: " + node.data + " , height: " + node.height );
+            // System.out.println("data: " + node.data + " , height: " + node.height );
         }
 
     }
