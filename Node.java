@@ -14,4 +14,20 @@ public class Node<T extends Comparable<T>> {
         data = item;
         left = right = null;
     }
+
+    public void print() {
+        if (this.left == null && this.right == null) {
+            System.out.print("[L: " + "null" + " | V: " + this.data + " | R: " + "null]    ");
+        }
+        else if (this.left == null || this.right == null) {
+            if (this.left == null)
+                System.out.print("[L: " + "null" + " | V: " + this.data + " | R: " + this.right.data + "]    ");
+                
+            if (this.right == null)
+                System.out.print("[L: " + this.left.data + " | V: " + this.data + " | R: " + "null]    ");
+        }
+        else {
+            System.out.print("[L: " + this.left.data + " | V: " + this.data + " | R: " + this.right.data + "]    ");
+        }
+    }
 }
